@@ -1,0 +1,450 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("//hello.myfonts.net/count/26d654");
+
+  
+@font-face {font-family: 'RamaGothicE-SemiBold';src: url('webfonts/26D654_0_0.eot');src: url('webfonts/26D654_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/26D654_0_0.woff') format('woff'),url('webfonts/26D654_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'RamaGothicE-Regular';src: url('webfonts/26D654_1_0.eot');src: url('webfonts/26D654_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/26D654_1_0.woff') format('woff'),url('webfonts/26D654_1_0.ttf') format('truetype');}
+
+
+body {
+	margin:0;
+	padding:0;
+	min-width:1000px;
+	background:#F2F2F2;
+}
+img { -ms-interpolation-mode: bicubic; }
+img, ul, li, p {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+p {
+	font-family: RamaGothicE-Regular, Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+a {
+	text-decoration:none;
+}
+
+#header {
+	width:100%;
+	height:32px;
+	background:#616B72;
+	position:fixed;
+	top:0px;
+	z-index:1000;
+}
+
+#header .logo {
+	position:absolute;
+	top:11px;
+	left:18px;
+	cursor:pointer;
+}
+
+#header #top_nav {
+	float:right;
+	
+}
+
+#header ul li {
+	float:left;
+	list-style:none;
+	width:114px;
+	height:22px;
+	background:#566067;
+	padding:5px;
+}
+
+#header ul li p {
+	font-size:18px;
+	text-align:center;
+}
+
+#main_banner { 
+	position:relative;
+	width:100%; 
+	margin-top:32px;
+}
+
+#main_banner #illustration {
+	border-bottom:1px solid #FFF;
+	position:relative;
+	overflow:hidden;
+}
+
+#main_banner #illustration .illustration_image {
+	width: 100%;
+	position:absolute;
+	
+}
+#main_banner #illustration .illustration_image img{
+	width: 100%;
+}
+#main_banner #illustration #back{
+	top: 26%;
+}
+#main_banner #illustration #school{
+	bottom:18%;
+}
+#main_banner #illustration #middle{
+	bottom: 8%;
+}
+#main_banner #illustration #front{
+	bottom:-5%;
+}
+#main_banner #illustration #art_center{
+	width: 100%;
+	bottom:-4%;
+}
+
+
+#main_banner #red_bar {
+	height:23px;
+	background:#EE3F21;
+	position:relative;
+}
+#main_banner #main_desc {
+	background:#DE1004;
+	height:142px;
+	padding-top:25px;
+	position:relative;
+}
+#main_banner #main_desc p{
+	text-align:center;
+	font-size:28px;
+}
+#content {
+	position:relative;
+	padding-bottom:100px;
+}
+#content #nav {
+	position:relative;
+	width:100%;
+	height:122px;
+	background:#353526;
+}
+#content #nav p {
+	font-size:36px;
+	font-family: RamaGothicE-SemiBold, Arial, Helvetica, sans-serif;
+}
+
+#content #nav #services {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:50%;
+	height:112px;
+	background:#000;
+	border-top:#6EA7B6 solid 1px;
+	border-bottom:#CC5631 solid 1px;
+	cursor:pointer;
+}
+
+#content #nav #services .nav_title {
+	float:right;
+	margin:37px 40px 0px 0px;
+}
+
+#content #nav #organizations .nav_title {
+	float:left;
+	margin:37px 0px 0px 40px;
+}
+
+#content #nav #organizations {
+	position:absolute;
+	left:50%;
+	top:0px;
+	width:50%;
+	height:112px;
+	background:#000;
+	border-top:#CC5631 solid 1px;
+	border-bottom:#6EA7B6 solid 1px;
+	cursor:pointer;
+}
+#content #nav #center_divider {
+	position:absolute;
+	height:113px;
+	width:1px;
+	top:0px;
+	left:50%;
+}
+#content #services_nav {
+	position:relative;
+	width:100%;
+}
+#content #services_nav .main_cat_row {
+	height:164px;
+	background:#C9B032;
+	width:100%;
+}
+#content #services_nav .main_cat_row #services_main_cats {
+	width:772px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#content #services_nav .main_cat_row #services_main_cats .services_icon_box {
+	float:left;
+	height:100%;
+	text-align:center;
+	cursor:pointer;
+}
+#content #services_nav .main_cat_row #services_main_cats .services_icon_box img {
+	margin-top:20px;
+}
+#content #services_nav .main_cat_row #services_main_cats .services_icon_box p {
+	font-size:16px;
+	margin-top:10px;
+}
+
+#content #services_nav .main_cat_row #services_main_cats #Governance_Leadership_Development {
+	width:185px;
+	background:#D3BC4A;
+}
+
+#content #services_nav .main_cat_row #services_main_cats #Fundraising_Campaign_Services {
+	width:201px;
+	background:#84C0C0;
+}
+
+#content #services_nav .main_cat_row #services_main_cats #Organizational_Development_Scaling {
+	width:201px;
+	background:#E96C64;	
+}
+
+#content #services_nav .main_cat_row #services_main_cats #Strategic_Business_Planning {
+	width:185px;
+	background:#EA883F;
+}
+
+
+#content #services_nav .sub_cat_row {
+	height:194px;
+	background:#CC5631;
+	width:100%;
+	margin-bottom:50px;
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats {
+	width:984px;
+	height:244px;
+	margin-left:auto;
+	margin-right:auto;
+	background:url(../images/services-sub-cat-bg.png) top no-repeat;
+	position:relative;
+	
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats ul {
+	padding-left:6px;
+	padding-top:15px;
+	float:left;
+}
+#content #services_nav .sub_cat_row #services_sub_cats ul li {
+	font-size:16px;
+	line-height:1.1em;
+	list-style:none;
+	padding:2px 6px 2px 6px
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats #GLD_sub {
+	float:left;
+	width:156px;
+	height:210px;
+	position:absolute;
+	left:4px;
+	top:23px;
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats #FCS_sub {
+	float:left;
+	width:354px;
+	height:210px;
+	position:absolute;
+	left:180px;
+	top:23px;
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats #ODS_sub {
+	float:left;
+	width:228px;
+	height:210px;
+	position:absolute;
+	left:553px;
+	top:23px;
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats #SBP_sub {
+	float:left;
+	width:181px;
+	height:210px;
+	position:absolute;
+	left:800px;
+	top:23px;
+}
+
+#content #services_nav .sub_cat_row #services_sub_cats .services_sub_cat {
+	cursor:pointer;
+}
+
+
+#content #organizations_nav {
+	position:relative;
+	width:100%;
+	height:144px;
+	margin-bottom:50px;
+	background:url(../images/organizations-nav-bg.gif) top repeat-x;
+}
+
+#content #organizations_nav #organizations_main_cats {
+	width:1000px;
+	height:120px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:38px;
+}
+
+#content #organizations_nav #organizations_main_cats .organizations_icon_box {
+	height:118px;
+	width:118px;
+	border:solid 1px #fff;
+	background:#EBEBEB;
+	float:left;
+	margin-right:4px;
+	text-align:center;
+	cursor:pointer;
+}
+#content #organizations_nav #organizations_main_cats .organizations_icon_box img {
+	margin-top:15px;
+}
+
+#content #organizations_nav #organizations_main_cats .organizations_icon_box p {
+	font-size:15px;
+	margin-top:-2px;
+	line-height:1em;
+}
+
+#content #blocks_container {
+	position:relative;
+	text-align:left;
+	margin-left:auto;
+	margin-right:auto;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+#content #blocks_container p {
+	font-family: RamaGothicE-Regular, Arial, Helvetica, sans-serif;
+	color:#fff;
+}
+
+#content #blocks_container .block {
+	width:230px;
+	position:absolute;
+	background:#fff;
+	-webkit-transition: all .7s ease-in-out;
+	-moz-transition: all .7s ease-in-out;
+	-o-transition: all .7s ease-in-out;
+	-ms-transition: all .7s ease-in-out;
+	transition: all .7s ease-in-out;
+
+	/*-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;*/
+}
+
+#content #blocks_container .big {
+	width:230px;
+	height:228px;
+	border:#E5E5E5 solid 1px;
+}
+
+#content #blocks_container .big .thumb {
+	margin-top:7px;
+	margin-left:5px;
+}
+
+#content #blocks_container .big .title p {
+	font-size:16px;
+	margin-left:18px;
+	margin-top:15px;
+	width:149px;
+}
+
+#content #blocks_container .big .icons_container {
+	position:absolute;
+	top:159px;
+	left:167px;
+	width:57px;
+	height:44px;
+}
+#content #blocks_container .big .icons_container img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+#content #blocks_container .small {
+	width:230px;
+	height:73px;
+	border:#E5E5E5 solid 1px;
+}
+
+#content #blocks_container .small .title p {
+	font-size:16px;
+	margin-left:18px;
+	margin-top:18px;
+	width:149px;
+	color:#FFF;
+}
+
+
+#content #blocks_container .small .icons_container {
+	position:absolute;
+	top:13px;
+	left:167px;
+	width:57px;
+	height:44px;
+}
+#content #blocks_container .small .icons_container img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+.active {
+	background:#353526 !important;
+	border-bottom:none !important;
+}
+
+.RamaGothicE-SemiBold {
+	font-family: RamaGothicE-SemiBold, Arial, Helvetica, sans-serif;
+}
+.RamaGothicE-Regular {
+	font-family: RamaGothicE-Regular, Arial, Helvetica, sans-serif;
+}
+.clear {
+	clear:both;
+}
+.off {
+	display:none;
+}
+
+.shadow {
+	-moz-box-shadow: 0px 8px 4px #999;
+	-webkit-box-shadow: 0px 8px 4px #999;
+	box-shadow: 0px 8px 4px #999;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=180, Color='#999999')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=6, Direction=180, Color='#999999');
+}
