@@ -44,7 +44,14 @@ a {
 	top:11px;
 	left:18px;
 	cursor:pointer;
+	width:18%;
+	min-width:185px;
+	max-width:261px;
 }
+#header .logo img {
+	width:100%;
+}
+
 
 #header #top_nav {
 	float:right;
@@ -74,11 +81,16 @@ a {
 	width:100%; 
 	padding-top:32px;
 }
-
+#main_banner #illustration_container {
+	position:absolute;
+	width:100%;
+	min-width:1000px;
+}
 #main_banner #illustration {
 	border-bottom:1px solid #FFF;
 	position:relative;
 	overflow:hidden;
+	width:100%;
 }
 
 #main_banner #illustration .illustration_image {
@@ -114,16 +126,17 @@ a {
 }
 #main_banner #main_desc {
 	background:#DE1004;
-	height:142px;
-	padding-top:25px;
+	height:110px;
+	padding-top:40px;
 	position:relative;
 }
 #main_banner #main_desc p{
 	text-align:center;
-	font-size:28px;
+	font-size:50px;
 }
 #content {
 	position:relative;
+	background:#F2F2F2;
 }
 #content #nav {
 	position:relative;
@@ -133,7 +146,7 @@ a {
 	border-top:1px solid #FFF;
 }
 #content #nav p {
-	font-size:36px;
+	font-size:46px;
 	font-family: RamaGothicE-SemiBold, Arial, Helvetica, sans-serif;
 }
 
@@ -217,18 +230,28 @@ a {
 #content #services_nav {
 	position:relative;
 	width:100%;
-	margin-bottom:100px;
+	margin-bottom:50px;
 }
 #content #services_nav .main_cat_row {
 	height:164px;
 	background:#C9B032;
 	width:100%;
 }
+
+#content #services_nav #services_nav_right_bg {
+	position:absolute;
+	height:164px;
+	left:50%; 
+	width:50%; 
+	background:#E57A35 ;
+}
+
 #content #services_nav .main_cat_row #services_main_cats {
 	width:772px;
 	height:100%;
 	margin-left:auto;
 	margin-right:auto;
+	position:relative;
 }
 
 #content #services_nav .main_cat_row #services_main_cats .services_icon_box {
@@ -241,95 +264,105 @@ a {
 	margin-top:20px;
 }
 #content #services_nav .main_cat_row #services_main_cats .services_icon_box p {
-	font-size:16px;
+	font-size:18px;
 	margin-top:10px;
 }
 
-#content #services_nav .main_cat_row #services_main_cats #Governance_Leadership_Development {
+#content #services_nav .main_cat_row #services_main_cats #Strategic_Business_Planning {
 	width:185px;
 	background:#D3BC4A;
 }
 
-#content #services_nav .main_cat_row #services_main_cats #Fundraising_Campaign_Services {
+#content #services_nav .main_cat_row #services_main_cats #Governance_Leadership_Development {
 	width:201px;
 	background:#84C0C0;
 }
 
-#content #services_nav .main_cat_row #services_main_cats #Organizational_Development_Scaling {
+#content #services_nav .main_cat_row #services_main_cats #Management_Organizational_Change {
 	width:201px;
 	background:#E96C64;	
 }
 
-#content #services_nav .main_cat_row #services_main_cats #Strategic_Business_Planning {
+#content #services_nav .main_cat_row #services_main_cats #Resource_Development_Allocation {
 	width:185px;
 	background:#EA883F;
 }
 
 #content #services_nav .sub_cat_row {
-	height:194px;
+	/*height:177px;*/
 	background:#CC5631;
 	width:100%;
+	background:-moz-linear-gradient(top center, #CC5631 75%, #F2F2F2 75%);
+    background:-o-linear-gradient(top center, #CC5631 75%, #F2F2F2 75%);
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(75%,#CC5631), color-stop(75%,#F2F2F2));
+    background:-ms-linear-gradient(top center, #CC5631 75%, #F2F2F2 75%);
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats {
-	width:984px;
-	height:244px;
+#content #services_nav .sub_cat_row .services_sub_cats {
+	width:979px;
 	margin-left:auto;
 	margin-right:auto;
-	background:url(../images/services-sub-cat-bg.png) top no-repeat;
-	position:relative;
-	
+	position:relative;	
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats ul {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_top {
+	width:979px;
+	height:23px;
+	background:url(../images/services-sub-cat-bg-top.png) top no-repeat;
+}
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid {
+	width:979px;
+	background:url(../images/services-sub-cat-bg-mid.jpg) top repeat-y;
+}
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_bottom {
+	width:979px;
+	height:53px;
+	background:url(../images/services-sub-cat-bg-bottom.png) top no-repeat;
+}
+
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid ul {
 	padding-left:6px;
 	padding-top:15px;
 	float:left;
 }
-#content #services_nav .sub_cat_row #services_sub_cats ul li {
-	font-size:16px;
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid ul li {
+	font-size:18px;
 	line-height:1.1em;
 	list-style:none;
-	padding:2px 6px 2px 6px
+	padding:2px 6px 6px 6px
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats #GLD_sub {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #SBP_sub {
 	float:left;
-	width:156px;
-	height:210px;
-	position:absolute;
-	left:4px;
-	top:23px;
+	width:193px;
 }
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #SBP_sub ul { width:175px; }
 
-#content #services_nav .sub_cat_row #services_sub_cats #FCS_sub {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #GLD_sub {
 	float:left;
-	width:354px;
-	height:210px;
-	position:absolute;
-	left:180px;
-	top:23px;
+	width:243px;
+	margin-left:20px;
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats #ODS_sub {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #GLD_sub ul { width:225px }
+
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #MOC_sub {
 	float:left;
-	width:228px;
-	height:210px;
-	position:absolute;
-	left:553px;
-	top:23px;
+	width:267px;
+	margin-left:20px;
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats #SBP_sub {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #MOC_sub ul { width:245px; }
+
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #RDA_sub {
 	float:left;
-	width:181px;
-	height:210px;
-	position:absolute;
-	left:800px;
-	top:23px;
+	width:217px;
+	margin-left:18px;
 }
 
-#content #services_nav .sub_cat_row #services_sub_cats .services_sub_cat {
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid #RDA_sub ul { width:197px; }
+
+#content #services_nav .sub_cat_row .services_sub_cats #services_sub_cats_mid .services_sub_cat {
 	cursor:pointer;
 }
 
@@ -367,13 +400,14 @@ a {
 	cursor:pointer;
 }
 #content #organizations_nav #organizations_main_cats .organizations_icon_box img {
-	margin-top:20px;
+	margin-top:25px;
 }
 
 #content #organizations_nav #organizations_main_cats .organizations_icon_box p {
 	font-size:16px;
 	margin-top:5px;
 	line-height:1em;
+	padding:0px 20px;
 }
 
 #content #organizations_nav #organizations_nav_bottom_bg {
@@ -381,6 +415,37 @@ a {
 	height:23px; 
 	width:100%; 
 	background:url(../images/organizations-nav-bottom_bg.jpg) top center no-repeat #E1E0D6;
+}
+
+#content .services_desc_box {
+	width:980px;
+	text-align:left;
+	margin-left:auto;
+	margin-right:auto;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	-ms-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+#content .services_desc_box .desc_box {
+	width:920px;
+	border:solid #E5E5E5 1px;
+	background:#FFF;
+	padding:30px;
+}
+
+#content .services_desc_box .desc_box .sub_tag_title {
+	font-family: RamaGothicE-SemiBold, Arial, Helvetica, sans-serif;
+	color:#84C0C0;
+	font-size: 40px;
+}
+#content .services_desc_box .desc_box .sub_tag_desc {
+	font-family: Arial, Helvetica, sans-serif;
+	color:#444444;
+	font-size: 14px;
+	padding:20px 0px 0px 0px
 }
 
 #content #blocks_container {

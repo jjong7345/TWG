@@ -1,0 +1,145 @@
+{
+	"services" : [
+					{ 	"name":"Strategic & <br/>Business Planning",
+						"subMenu":[ { "name":"Long-range strategic planning", 
+									  "desc":"Plan A guides the development of long-range plans (3-5 years) for clients beginning with a vision statement for the client's future, then developing a series of strategic goals, objectives and tactics to realize the vision carefully calibrated to a timeline and metrics" },
+								  { "name":"Tactical business planning",
+								  	"desc":"Plan A guides the development of step-by-step plans to realize complex organizational initiatives that may include a change in direction or focus, or the addition of a new facility or program." },
+								  { "name":"Financial planning", 
+								  	"desc":"Plan A guides the development of multi-year financial forecasts including detailed expense projections, realistic and actionable plans for developing the financial resources to meet expenses, and recommended investments in capacity building, especially in the area of resource development." },
+								  { "name":"Scaling",
+								  	"desc":"Plan A guides the development of strategies for clients who are planning to expand the programs or services that they offer, or their geographic region, now commonly known as \"scaling\"." },
+								  { "name":"Mergers & acquisitions",
+								  	"desc":"Plan A designs and guides comprehensive plans for nonprofits that are in the process of merging with or acquiring another nonprofit, and facilitates the entire merger process." } ],
+						"iconBig":"images/icons/sbp_big.png",
+						"iconColor":"images/icons/icon_strategic_business_planning_color.png",
+						"iconWhite":"images/icons/icon_strategic_business_planning_white.png",
+						"color":"#D3BC4A"
+					},
+					{	"name":"Governance &<br/> Leadership Development",
+						"subMenu":[ { "name":"Board assessment & development", 
+									  "desc":"Plan A assesses the performance of a nonprofit's board against generally accepted benchmarks for best practices and makes recommendations to improve board performance; Plan A also guides the board development process to install new membership or leadership." },
+								  { "name":"Retreat/meeting design & facilitation", 
+								    "desc": "Plan A designs organizational retreats and planning meetings and serves as an independent facilitator." },
+								  { "name":"Executive coaching", 
+								  	"desc":"Plan A works closely with nonprofit leaders to strengthen performance and provide objective and experience-based advice on matters including governance, staff management, planning, financial management, organizational structure and more." },
+								  { "name":"Executive & board succession planning", 
+								  	"desc": "Plan A works with the board and executive leadership of nonprofits to develop succession plans for both, and coaches and trains incoming and future leaders to prepare them for new responsibilities." } ],
+						"iconBig":"images/icons/gld_big.png",
+						"iconColor":"images/icons/icon_governance_leadership_development_color.png",
+						"iconWhite":"images/icons/icon_governance_leadership_development_white.png",
+						"color":"#84C0C0"
+					},
+					{	"name":"Management &<br/> Organizational Change",
+						"subMenu":[ { "name":"Organizational assessment & development", 
+									  "desc":"Plan A assesses the capacity and function of an organization's operations, management culture, supervisory and staffing structure, and performance, and recommends approaches to improve efficiency and impact." },
+								  { "name":"Program development & evaluation", 
+								  	"desc":"Plan A guides the development of functional, implementable, tactical plans to launch or expand programs within a framework that enables organizations to evaluate and demonstrate long-term impact and efficient use of resources." },
+								  { "name":"Diversity & gender audits", 
+								  	"desc":"Plan A assesses an organization's practices, policies, performance, and culture with regard to gender equity and/or other areas of equal opportunity, and recommends approaches to ensure that every employee and client feels that the organization provides an inclusive workplace and services. Plan A develops custom diversity trainings to help management and staff to build an inclusive organization." },
+								  { "name":"Environmental scans", 
+								  	"desc":"Plan A conducts scans of comparable organizations in a given field to help clients benchmark best practices and uncover alternative models to improve long-term impact." },
+								  { "name":"Strategic partnership development", 
+								  	"desc":"Plan A negotiates strategic partnership agreements between organizations, facilitating conversations between boards and staff leadership, drafting the Memorandum of Understanding, and helping to set financial terms." } ],
+						"iconBig":"images/icons/moc_big.png",
+						"iconColor":"images/icons/icon_management_organizational_change_color.png",
+						"iconWhite":"images/icons/icon_management_organizational_change_white.png",
+						"color":"#E96C64"
+					},
+					{	"name":"Resource Development & <br/>Allocation",
+						"subMenu":[ { "name":"Feasibility studies", 
+									  "desc":"Plan A studies the feasibility of conducting fundraising campaigns for nonprofits; as a result, clients are able to set realistic fundraising goals, and can identify potential campaign leadership." },
+								  { "name":"Development audits", 
+								  	"desc":"Plan A assesses the performance of a nonprofit's fundraising efforts including both board and staff activities against generally accepted benchmarks for best practices and makes recommendations to improve performance. Plan A also guides the process of designing new fundraising programs, installing new staff, and setting appropriate goals." },
+								  { "name":"Fundraising planning", 
+								  	"desc":"Plan A works with nonprofits to match organizational goals and aspirations (i.e. those set in a strategic plan) to realistic and actionable fundraising plans that secure the financial resources necessary to sustain the nonprofit long term, as well." },
+								  { "name":"Philanthropic visioning & counsel", 
+								  	"desc":"Plan A works with foundations and philanthropies to design their philanthropic agendas, determine the focus for their giving platform, the specific programs through which they will distribute grants, and the measurable goals they hope to achieve." } ],
+						"iconBig":"images/icons/rda_big.png",
+						"iconColor":"images/icons/icon_resource_development_allocation_color.png",
+						"iconWhite":"images/icons/icon_resource_development_allocation_white.png",
+						"color":"#EA883F"
+					}
+	],
+	"organizations":[
+						{	"name":"Schools",
+							"iconBig":"images/icons/schools_big.png",
+							"iconColor":"images/icons/icon_schools_color.png",
+							"iconWhite":"images/icons/icon_schools_white.png"
+						},
+						{	"name":"Higher education",
+							"iconBig":"images/icons/higher_education_big.png",
+							"iconColor":"images/icons/icon_higher_education_color.png",
+							"iconWhite":"images/icons/icon_higher_education_white.png"
+						},
+						{	"name":"Arts & Culture",
+							"iconBig":"images/icons/arts_culture_big.png",
+							"iconColor":"images/icons/icon_arts_culture_color.png",
+							"iconWhite":"images/icons/icon_arts_culture_white.png"
+						},
+						{	"name":"Faith-based",
+							"iconBig":"images/icons/faith_based_big.png",
+							"iconColor":"images/icons/icon_faith_based_color.png",
+							"iconWhite":"images/icons/icon_faith_based_white.png"
+						},
+						{	"name":"Parks & open Space",
+							"iconBig":"images/icons/parks_open_space_big.png",
+							"iconColor":"images/icons/icon_parks_open_space_color.png",
+							"iconWhite":"images/icons/icon_parks_open_space_white.png"
+						},
+						{	"name":"Human Service & Advocacy",
+							"iconBig":"images/icons/human_services_advocacy_big.png",
+							"iconColor":"images/icons/icon_human_services_advocacy_color.png",
+							"iconWhite":"images/icons/icon_human_services_advocacy_white.png"
+						},
+						{	"name":"Community Development",
+							"iconBig":"images/icons/community_development_big.png",
+							"iconColor":"images/icons/icon_community_development_color.png",
+							"iconWhite":"images/icons/icon_community_development_white.png"
+						},
+						{	"name":"Philanthropy & Funding",
+							"iconBig":"images/icons/philanthropy_funding_big.png",
+							"iconColor":"images/icons/icon_philanthropy_funding_color.png",
+							"iconWhite":"images/icons/icon_philanthropy_funding_white.png"
+						}
+						
+						
+	],
+	"blocks": [
+				{"title":"MT. ALOYSIUS COLLEGE",
+				 "image":"images/thumbs/pic1.jpg",
+				 "tags":[ "governance_leadership_development",
+				 		  "strategic_business_planning",
+				 		  "higher_education",
+				 		  "faith_based",
+				 		  "financial_planning",
+				 		  "retreat_meeting_design_facilitation" ],
+				 "color":"#7E7FC0"
+				},
+				{"title":"THE GENESIS FOUNDATION",
+				 "image":"images/thumbs/pic2.jpg",
+				 "tags":[ "arts_culture",
+				 		  "philanthropy",			
+				 		  "management_organizational_change",
+				 		  "diversity_gender_audits" ],
+				 "color":"#CC9999"
+				},
+				{"title":"XAVERIAN HIGH SCHOOL",
+				 "image":"images/thumbs/pic3.jpg",
+				 "tags":[ "schools",
+				 		  "governance_leadership_development",			
+				 		  "board_audits" ],
+				 "color":"#637CA3"
+				},
+				{"title":"SNUG HARBOR CENTER &amp; BOTANICAL GARDEN",
+				 "tags":[ "arts_culture",
+				 		  "parks_open_space",			
+				 		  "management_organizational_change",
+				 		  "program_development_evaluation" ],
+				 "color":"#A3C24D"
+				}
+	]
+}
+
+
+

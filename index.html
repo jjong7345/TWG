@@ -1,12 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=1000" />
 <title>The Whelan Group</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" media="screen" />
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script> 
+<!--<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.easing.1.3.js"></script> -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
 <script type="text/javascript" src="js/modernizr-2.6.1.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </head>
@@ -25,24 +27,25 @@
         <div class="clear"></div>
   	</div>
     <div id="main_banner">
-        <div id="illustration">
-            <div class="illustration_image" id="sky"><img src="images/sky.png"  /></div>
-            <div class="illustration_image" id="far"><img src="images/far.png"  /></div>
-            <div class="illustration_image" id="back"><img src="images/back.png"  /></div>
-            <div class="illustration_image" id="school"><img src="images/school.png"  /></div>
-            <div class="illustration_image" id="middle"><img src="images/middle.png"  /></div>
-            <div class="illustration_image" id="front"><img src="images/front.png"  /></div>
-            <div class="illustration_image" id="art_center"><img src="images/art_center.png"  /></div>
-            <!--<div id="hit_area">
-            	<div class="rollover1" style="position:absolute; width:8%; height:5%;  top:45%; left:11%; opacity:.0"></div>
-            	<div class="rollover1" style="position:absolute; width:30%; height:35%;  top:50%; left:0%; opacity:.0"></div>
+    	<div id="illustration_container">
+            <div id="illustration">
+                <div class="illustration_image" id="sky"><img src="images/sky.png"  /></div>
+                <div class="illustration_image" id="far"><img src="images/far.png"  /></div>
+                <div class="illustration_image" id="back"><img src="images/back.png"  /></div>
+                <div class="illustration_image" id="school"><img src="images/school.png"  /></div>
+                <div class="illustration_image" id="middle"><img src="images/middle.png"  /></div>
+                <div class="illustration_image" id="front"><img src="images/front.png"  /></div>
+                <div class="illustration_image" id="art_center"><img src="images/art_center.png"  /></div>
+                <!--<div id="hit_area">
+                    <div class="rollover1" style="position:absolute; width:8%; height:5%;  top:45%; left:11%; opacity:.0"></div>
+                    <div class="rollover1" style="position:absolute; width:30%; height:35%;  top:50%; left:0%; opacity:.0"></div>
+                </div>
+                <div class="popup" style="position:absolute; width:200px; height:100px; background:#000; top:50%; left:30%; opacity:.5; display:none" ></div>-->
             </div>
-            <div class="popup" style="position:absolute; width:200px; height:100px; background:#000; top:50%; left:30%; opacity:.5; display:none" ></div>-->
         </div>
         <div id="red_bar"></div>
         <div id="main_desc">
-            <p><span class="RamaGothicE-SemiBold" style="font-size:58px">More Effective Nonprofits = A Community of Good</span></p>
-            <p><span class="RamaGothicE-SemiBold">The Whelan Group:</span> Planning, governance, fundraising for growth-oriented organizations and institutions.</p>
+            <p><span class="RamaGothicE-SemiBold">PLAN A</span> Advisors - Planning for nonprofits and philanthropy</p>
         </div>
     </div>
     <div id="content">
@@ -62,116 +65,85 @@
         </div>
         <div id="services_nav">
             <div class="main_cat_row">
+            	<div id="services_nav_right_bg"></div>
             	<div id="services_main_cats">
-                	<div class="services_icon_box" id="Governance_Leadership_Development"><img src=images/icons/GLD_big.png /><p>Governance & Leadership <br/>Development</p></div>
-                    <div class="services_icon_box" id="Fundraising_Campaign_Services"><img src=images/icons/FCS_big.png /><p>Fundraising & Campaign <br/>Services</p></div>
-                    <div class="services_icon_box" id="Organizational_Development_Scaling"><img src=images/icons/ODS_big.png /><p>Organizational <br/>Development & Scaling</p></div>
-                    <div class="services_icon_box" id="Strategic_Business_Planning"><img src=images/icons/SBP_big.png /><p>Strategic & Business <br/>Planning</p></div>
+                	<div class="services_icon_box" id="Strategic_Business_Planning"><img /><p></p></div>
+                    <div class="services_icon_box" id="Governance_Leadership_Development"><img /><p></p></div>
+                    <div class="services_icon_box" id="Management_Organizational_Change"><img /><p></p></div>
+                    <div class="services_icon_box" id="Resource_Development_Allocation"><img /><p></p></div>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="sub_cat_row">
-            	<div id="services_sub_cats">
-                	<div id="GLD_sub">
-                    	<ul>
-                        	<li class="services_sub_cat" id="Board_and_Staff_Retreats"><p>Board and Staff Retreats</p></li>
-                            <li class="services_sub_cat" id="Board_Audits"><p>Board Audits</p></li>
-                            <li class="services_sub_cat" id="Board_Development"><p>Board Development</p></li>
-                            <li class="services_sub_cat" id="Board_Recruitment"><p>Board Recruitment</p></li>
-                            <li class="services_sub_cat" id="Executive_Coaching"><p>Executive Coaching</p></li>
-                        </ul>
+                <div class="services_sub_cats">
+                    <div id="services_sub_cats_top"></div>
+                	<div id="services_sub_cats_mid">
+                    	<div id="SBP_sub">
+                        	<ul></ul>
+                        </div>
+                        <div id="GLD_sub">
+                        	<ul></ul>
+                        </div>
+                        <div id="MOC_sub">
+                        	<ul></ul>
+                        </div>
+                        <div id="RDA_sub">
+                        	<ul></ul>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div id="FCS_sub">
-                    	<ul>
-                        	<li class="services_sub_cat" id="Campaign_Counsel_Management"><p>Campaign Counsel & <br/>Management</p></li>
-                            <li class="services_sub_cat" id="Campaign_Feasibility_Readiness_Studies"><p>Campaign Feasibility & <br/>Readiness Studies</p></li>
-                            <li class="services_sub_cat" id="Campaign_Gift_Negotiation"><p>Campaign Gift Negotiation</p></li>
-                            <li class="services_sub_cat" id="Fundraising_Audits"><p>Fundraising Audits</p></li>
-                            <li class="services_sub_cat" id="Fundraising_Capacity_Building"><p>Fundraising Capacity Building</p></li>
-                            <li class="services_sub_cat" id="Fundraising_Program_Plan"><p>Fundraising Program Plans</p></li>
-                        </ul>
-                        <ul style="margin-left:0px">
-                        	<li class="services_sub_cat" id="Major_Gift_Programs"><p>Major Gift Programs</p></li>
-                            <li class="services_sub_cat" id="Planned_Giving_Programs"><p>Planned Giving Programs</p></li>
-                            <li class="services_sub_cat" id="Philanthropic_Advisory_Services"><p>Philanthropic Advisory Services</p></li>
-                            <li class="services_sub_cat" id="Growth_Capital_Social_Investment_Strategies"><p>Growth Capital & Social <br/>Investment Strategies</p></li>
-                            <li class="services_sub_cat" id="Upper_Level_Membership_Programs"><p>Upper Level Membership <br/>Programs</p></li>
-                            <li class="services_sub_cat" id="Audience_Development_Communications"><p>Audience Development & <br/>Communications</p></li>
-                        </ul>
-                    </div>
-                    <div id="ODS_sub">
-                    	<ul>
-                        	<li class="services_sub_cat" id="Environmental_Scan"><p>Environmental Scans</p></li>
-                            <li class="services_sub_cat" id="Philanthropy_Counsel"><p>Philanthropy Counsel</p></li>
-                            <li class="services_sub_cat" id="Management_Consulting"><p>Management <br/>Consulting</p></li>
-                            <li class="services_sub_cat" id="Pitch_Pieces"><p>Pitch Pieces</p></li>
-                            <li class="services_sub_cat" id="Vision_Statements"><p>Vision Statements</p></li>
-                            <li class="services_sub_cat" id="Visioning_Retreats"><p>Visioning Retreats</p></li>
-                        </ul>
-                        <ul style="margin-left:0px">
-                        	<li class="services_sub_cat" id="Scaling"><p>Scaling</p></li>
-                            <li class="services_sub_cat" id="Corporate_Partnerships"><p>Corporate <br/>Partnerships</p></li>
-                            <li class="services_sub_cat" id="Mergers"><p>Mergers</p></li>
-                            <li class="services_sub_cat" id="Strategic_Partnerships"><p>Strategic <br/>Partnerships</p></li>
-                        </ul>
-                    </div>
-                    <div id="SBP_sub">
-                    	<ul>
-                        	<li class="services_sub_cat" id="Business_Planning"><p>Business Planning</p></li>
-                            <li class="services_sub_cat" id="Strategic_Planning"><p>Strategic Planning</p></li>
-                            <li class="services_sub_cat" id="Facility_Planning"><p>Facility Planning</p></li>
-                            <li class="services_sub_cat" id="Facility_Financing_Strategies"><p>Facility Financing Strategies</p></li>
-                            <li class="services_sub_cat" id="Financial_Needs_Assessments"><p>Financial Needs Assessments</p></li>
-                            <li class="services_sub_cat" id="Financial_Planning_Forecasting"><p>Financial Planning & <br/>Forecasting</p></li>
-                            <li class="services_sub_cat" id="Financial_Management_Systems"><p>Financial Management Systems</p></li>
-                        </ul>
-                    </div>
+                    <div id="services_sub_cats_bottom"></div>
                 </div>
-                <div class="clear"></div>
             </div>
         </div>
         <div id="organizations_nav">
         	<div id="organizations_nav_right_bg"></div>
         	<div id="organizations_main_cats">
-        		<div class="organizations_icon_box" id="Schools" style="background:#A5C257">
-                	<img src="images/icons/Schools_big.png" />
-                    <p>Schools</p>
+        		<div class="organizations_icon_box" style="background:#A5C257">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Higher_Education" style="background:#65C2A3">
-                	<img src="images/icons/Higher_Education_big.png" />
-                    <p>Higher<br/>education</p>
+                <div class="organizations_icon_box"  style="background:#65C2A3">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Arts_Culture" style="background:#5CA2BA">
-                	<img src="images/icons/Arts_Culture_big.png" />
-                    <p>Arts & Culture</p>
+                <div class="organizations_icon_box"  style="background:#5CA2BA">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Faith_Based" style="background:#A68660">
-                	<img src="images/icons/Faith_Based_big.png" />
-                    <p>Faith-based</p>
+                <div class="organizations_icon_box"  style="background:#A68660">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Parks_Open_Space" style="background:#FF734C">
-                	<img src="images/icons/Parks_Open_Space_big.png" />
-                    <p>Parks & <br/>open Space</p>
+                <div class="organizations_icon_box"  style="background:#FF734C">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Human_Services_Advocacy" style="background:#E086B0">
-                	<img src="images/icons/Human_Services_Advocacy_big.png" />
-                    <p>Human Service<br/>& Advocacy</p>
+                <div class="organizations_icon_box"  style="background:#E086B0">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Community_Development_Housing" style="background:#F29748">
-                	<img src="images/icons/Community_Development_Housing_big.png" />
-                    <p>Community<br/>Development & <br/>Housing</p>
+                <div class="organizations_icon_box"  style="background:#F29748">
+                	<img  />
+                    <p></p>
                 </div>
-                <div class="organizations_icon_box" id="Philanthropy_Funding" style="background:#F5BB55">
-                	<img src="images/icons/Philanthropy_Funding_big.png" />
-                    <p>Philanthropy<br/>& Funding</p>
+                <div class="organizations_icon_box"  style="background:#F5BB55">
+                	<img  />
+                    <p></p>
                 </div>
                 <div class="clear"></div>
             </div>
             <div id="organizations_nav_bottom_bg"></div>
         </div>
+        <div class="services_desc_box">
+            <div class="desc_box">
+                <p class="sub_tag_title">EXECUTIVE COACHING</p>
+                <p class="sub_tag_desc">Plan A works closely with nonprofit leaders to strengthen performance and provide objective and experience-based advice on matters including governance, staff management, planning, financial management, organizational structure and more.</p>
+            </div>
+        </div>
         <div id="blocks_container">
         	
-            <div class="block big Higher_Education Faith_Based Governance_Leadership_Development Strategic_Business_Planning Board_and_Staff_Retreats Strategic_Planning Business_Planning">
+            <!--<div class="block big" data-tags="higher_education faith_based governance_leadership_development strategic_business_planning Board_and_Staff_Retreats Strategic_Planning Business_Planning">
                 <img class="thumb" src="images/thumbs/pic1.jpg" />
                 <div class="title"><p style="color:#7E7FC0">MT. ALOYSIUS COLLEGE</p></div>
                 <div class="icons_container">
@@ -193,7 +165,7 @@
                 </div>
             </div>
             <div class="block small Arts_Culture Parks_Open_Space Fundraising_Campaign_Services Campaign_Feasibility_Readiness_Studies" style="background:#A3C24D">
-                <div class="title"><p>SNUG HARBOR CENTER & BOTANICAL GARDEN</p></div>
+                <div class="title"><p>SNUG HARBOR CENTER &amp; BOTANICAL GARDEN</p></div>
                 <div class="icons_container">
                     <img />
                 </div>
@@ -423,7 +395,7 @@
                 <div class="icons_container">
                     <img />
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
     <div id="footer">

@@ -2,7 +2,18 @@ $(document).ready(function(e) {
 	Modernizr.load([ {
 		test : Modernizr.cssanimations,
 		complete : function () {
-			Site.init();
+		    
+		    $.ajax({
+		        url:"data/home.json",
+		        dataType:"json",
+		        success:function(response) {
+		          //alert(response.services.length);  
+		          Site.init(response);
+		        },
+		        error:function(e) {
+		          alert("error loading datas");
+		        }
+		    });
 		}
 	  },
 	]);
@@ -12,6 +23,8 @@ var Site = (function(){
 	
 	"use strict";
 	
+	//json response
+	var response;
 	// Calulate image ratio by (height/width) of image
 	var imageRatio = 839/1600;
 	var decreaseRatio = 150;
@@ -23,12 +36,14 @@ var Site = (function(){
 	var organizations_cats = [];
 	var services_cats = [];
 	var services_GLD_subCats = [];
-	var services_FCS_subCats = [];
-	var services_ODS_subCats = [];
+	var services_MOC_subCats = [];
+	var services_RDA_subCats = [];
 	var services_SBP_subCats = [];
 	var services_color_scheme = [];
 	var organizations_color_scheme = [];
-	
+	var services_subCat_desc = [];
+	var services_subCat_title = [];
+    
 	var model;
 	var colCount = 0;
 	var colWidth = 0;
@@ -38,15 +53,223 @@ var Site = (function(){
 	var blockHeights = [];
 	var timeout;
 	
-	function init() {
-		
-		$("#hit_area").mouseenter(function(e) {
-			$(".popup").show();
+	function populateContent() {
+	    
+	    $(".services_icon_box").each(function(index) {
+		  $(this).find("img").attr({"src":response.services[index].iconBig});
+		  $(this).find("p").append(response.services[index].name);
 		});
 		
-		$("#hit_area").mouseleave(function(e) {
-            $(".popup").hide();
+		$.each(response.services[0].subMenu, function(index) {
+		     
+              //generate id to be used as tag
+              var n = response.services[0].subMenu[index].name.toLowerCase();;
+              var pattern1 = /[\W]/g;
+              n =  n.replace(pattern1, " "); 
+              var pattern2 = /\s{1,}/g;
+              var generated_id =  n.replace(pattern2, "_");
+              //trace(generated_id);
+              $("#SBP_sub").find("ul").append("<li class='services_sub_cat' id='"+ generated_id +"'><p>"+ response.services[0].subMenu[index].name +"</p></li>");
+		  
+		});
+		
+		$.each(response.services[1].subMenu, function(index) {
+              //generate id to be used as tag
+              var n = response.services[1].subMenu[index].name.toLowerCase();
+               var pattern1 = /[\W]/g;
+              n =  n.replace(pattern1, " "); 
+              var pattern2 = /\s{1,}/g;
+              var generated_id =  n.replace(pattern2, "_");
+              //trace(generated_id);
+              
+              $("#GLD_sub").find("ul").append("<li class='services_sub_cat' id='"+ generated_id +"'><p>"+ response.services[1].subMenu[index].name +"</p></li>");
+              
+          
         });
+        
+        $.each(response.services[2].subMenu, function(index) {
+            
+              //generate id to be used as tag
+              var n = response.services[2].subMenu[index].name.toLowerCase();;
+              var pattern1 = /[\W]/g;
+              n =  n.replace(pattern1, " "); 
+              var pattern2 = /\s{1,}/g;
+              var generated_id =  n.replace(pattern2, "_");
+              //trace(generated_id);
+              $("#MOC_sub").find("ul").append("<li class='services_sub_cat' id='"+ generated_id +"'><p>"+ response.services[2].subMenu[index].name +"</p></li>");
+              
+          
+        });
+        
+        $.each(response.services[3].subMenu, function(index) {
+              //generate id to be used as tag
+              var n = response.services[3].subMenu[index].name.toLowerCase();;
+               var pattern1 = /[\W]/g;
+               n =  n.replace(pattern1, " "); 
+               var pattern2 = /\s{1,}/g;
+               var generated_id =  n.replace(pattern2, "_");
+              //trace(generated_id);
+              $("#RDA_sub").find("ul").append("<li class='services_sub_cat' id='"+ generated_id +"'><p>"+ response.services[3].subMenu[index].name +"</p></li>");
+                  
+        });
+        
+        $(".organizations_icon_box").each( function(index) {
+            
+              var n = response.organizations[index].name; 
+              var pattern1 = /[\W]/g;
+              n =  n.replace(pattern1, " "); 
+              var pattern2 = /\s{1,}/g;
+              var generated_id =  n.replace(pattern2, "_");
+              //trace(generated_id);
+              $(this).attr({"id":generated_id});
+              $(this).find("img").attr({"src":response.organizations[index].iconBig});
+              $(this).find("p").append(response.organizations[index].name);
+        });
+        
+        //populate blocks
+        if (response.blocks.length > 0) {
+            $.each(response.blocks, function(index) {
+               
+               var node = document.createElement("div");
+               if (response.blocks[index].image) { 
+                   node.className = "block big";
+               }
+               else {
+                   node.className = "block small";
+                   node.style.backgroundColor = response.blocks[index].color;
+               }
+               node.dataset.tags = response.blocks[index].tags;
+               document.getElementById("blocks_container").appendChild(node);
+               
+               if (response.blocks[index].image) {
+                   var node2 = document.createElement("img");
+                   node2.className = "thumb";
+                   node2.setAttribute("src", response.blocks[index].image );
+                   node.appendChild(node2);
+               }
+               
+               var node3 = document.createElement("div");
+               node3.className = "title";
+               node.appendChild(node3);
+               
+               var node4 = document.createElement("p");
+               node4.innerHTML = response.blocks[index].title;
+               if (response.blocks[index].image) node4.style.color = response.blocks[index].color;
+               node3.appendChild(node4);
+               
+               var node5 = document.createElement("div");
+               node5.className = "icons_container";
+               node.appendChild(node5);
+               
+               var node6 = document.createElement("img");
+               node5.appendChild(node6);
+                      
+            });
+        }
+        else {
+            
+        }
+        
+	}
+	
+	function init(_response) {
+	    //response = $.parseJSON(_response);
+	    response = _response;
+	    populateContent();
+	    
+	    if ("addEventListener" in document.body) {
+    		//for IOS devices you prevent native scrolling and create a custom scrolling events
+    		document.body.addEventListener('touchmove', function(event) {
+    			 //event.preventDefault();
+    		}, false);
+    		
+    		var Scroller = function(element) {
+    		
+    		  this.element = this;
+    		  this.startTouchY = 0;
+    		  this.animateTo(0);
+    		
+    		  element.addEventListener("touchstart", this, false);
+    		  element.addEventListener("touchmove", this, false);
+    		  element.addEventListener("touchend", this, false);
+    		}
+    		
+    		Scroller.prototype.handleEvent = function(e) {
+    		  switch (e.type) {
+    			case "touchstart":
+    			  this.onTouchStart(e);
+    			  break;
+    			case "touchmove":
+    			  this.onTouchMove(e);
+    			  break;
+    			case "touchend":
+    			  this.onTouchEnd(e);
+    			  break;
+    		  }
+    		}
+    		Scroller.prototype.onTouchStart = function(e) {
+    		  // This will be shown in part 4.
+    		  //this.stopMomentum();
+    		
+    		  this.startTouchY = e.touches[0].clientY;
+    		  this.contentStartOffsetY = this.contentOffsetY;
+    		}
+    		
+    		Scroller.prototype.onTouchMove = function(e) {
+    		  if (this.isDragging()) {
+    			var currentY = e.touches[0].clientY;
+    			var deltaY = currentY - this.startTouchY;
+    			var newY = deltaY + this.contentStartOffsetY;
+    			this.animateTo(newY);
+    		  }
+    		}
+    		
+    		Scroller.prototype.onTouchEnd = function(e) {
+    		  if (this.isDragging()) {
+    			if (this.shouldStartMomentum()) {
+    			  // This will be shown in part 3.
+    			  //this.doMomentum();
+    			} else {
+    			  this.snapToBounds();
+    			}
+    		  }
+    		}
+    		
+    		Scroller.prototype.animateTo = function(offsetY) {
+    			
+    		  this.contentOffsetY = offsetY;
+    		  // We use webkit-transforms with translate3d because these animations
+    		  // will be hardware accelerated, and therefore significantly faster
+    		  // than changing the top value.
+    		  document.getElementById("content").style.webkitTransform = "translate3d(0, " + offsetY + "px, 0)";
+    		}
+    		
+    		// Implementation of this method is left as an exercise for the reader.
+    		// You need to measure the current position of the scrollable content
+    		// relative to the frame. If the content is outside of the boundaries
+    		// then simply reposition it to be just within the appropriate boundary.
+    		Scroller.prototype.snapToBounds = function() {
+    		  ///...
+    		}
+    		
+    		// Implementation of this method is left as an exercise for the reader.
+    		// You need to consider whether their touch has moved past a certain
+    		// threshold that should be considered ‘dragging’.
+    		Scroller.prototype.isDragging = function() {
+    		  ///...
+    		}
+    		
+    		// Implementation of this method is left as an exercise for the reader.
+    		// You need to consider the end velocity of the drag was past the
+    		// threshold required to initiate momentum.
+    		Scroller.prototype.shouldStartMomentum = function() {
+    		  ///...
+    		}
+    		
+    		var content = new Scroller(document.getElementById("content"));
+		}
+		
+		
 		
 		//set up observer pattern for event listeners
 		Event.prototype = {
@@ -69,8 +292,12 @@ var Site = (function(){
 			
 			/*mainBannerHeight = (windowWidth * imageRatio) + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width"));*/
 			$("#illustration").height((windowWidth * imageRatio) - (decreaseRatio));
+			$("#main_banner #red_bar").css({"margin-top":$("#illustration").height()});
+			
 			
 			mainBannerHeight = $("#illustration").height() + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width")) + 1;
+			
+			
 			
 			//$("html, body").scrollTop(mainBannerHeight);
 			
@@ -88,6 +315,8 @@ var Site = (function(){
 			else {
 				$("#header").css({"top":"0px"});
 			}
+			
+			//$("#illustration_container").css({"top":$(window).scrollTop()});
 			//trace("scrolling");
 		});		
 		
@@ -129,11 +358,11 @@ var Site = (function(){
 		$("#GLD_sub .services_sub_cat").each(function(index, element) {
             services_GLD_subCats.push($(this).attr("id"));
         });
-		$("#FCS_sub .services_sub_cat").each(function(index, element) {
-            services_FCS_subCats.push($(this).attr("id"));
+		$("#MOC_sub .services_sub_cat").each(function(index, element) {
+            services_MOC_subCats.push($(this).attr("id"));
         });
-		$("#ODS_sub .services_sub_cat").each(function(index, element) {
-            services_ODS_subCats.push($(this).attr("id"));
+		$("#RDA_sub .services_sub_cat").each(function(index, element) {
+            services_RDA_subCats.push($(this).attr("id"));
         });
 		$("#SBP_sub .services_sub_cat").each(function(index, element) {
             services_SBP_subCats.push($(this).attr("id"));
@@ -157,15 +386,24 @@ var Site = (function(){
 			});
 			$(this).click(function(e) {
 				if ($.inArray($(this).attr("id"), services_GLD_subCats) != -1) model.setCurrTag("Governance_Leadership_Development"); 
-				else if ($.inArray($(this).attr("id"), services_FCS_subCats) != -1) model.setCurrTag("Fundraising_Campaign_Services");
-				else if ($.inArray($(this).attr("id"), services_ODS_subCats) != -1) model.setCurrTag("Organizational_Development_Scaling"); 
+				else if ($.inArray($(this).attr("id"), services_MOC_subCats) != -1) model.setCurrTag("Management_Organizational_Change");
+				else if ($.inArray($(this).attr("id"), services_RDA_subCats) != -1) model.setCurrTag("Resource_Development_Allocation"); 
 				else if ($.inArray($(this).attr("id"), services_SBP_subCats) != -1) model.setCurrTag("Strategic_Business_Planning");  
 				
-				model.setCurrSubTag($(this).attr("id"));
+				model.setCurrSubTag($(this).attr("id"), index);
 				//trace(model.getCurrSection()+":"+model.getCurrTag()+":"+model.getCurrSubTag());
 			});
 		});
-		
+        
+        $.each(response.services, function(index) {
+            $.each(response.services[index].subMenu, function(_index) {
+               services_subCat_title.push(response.services[index].subMenu[_index].name);
+               services_subCat_desc.push(response.services[index].subMenu[_index].desc);
+               //trace(response.services[index].subMenu[_index].desc);
+            });
+        });
+        		
+	
 		model = new Model();
 		model.onSectionChange.attach(this, "update");
 		model.onTagChange.attach(this, "update");
@@ -189,6 +427,7 @@ var Site = (function(){
 		var currSection;
 		var currTag;
 		var currSubTag;
+		var currSubTagIndex;
 		
 		this.onSectionChange = new Event(this);
 		
@@ -212,13 +451,18 @@ var Site = (function(){
 		
 		this.onSubTagChange = new Event(this);
 		
-		this.setCurrSubTag= function(_subTag) {
+		this.setCurrSubTag= function(_subTag, _index) {
 			currSubTag = _subTag;
+			currSubTagIndex = _index
 			this.onSubTagChange.notify("onSubTagChange");
 		}
 		this.getCurrSubTag = function() {
 			return currSubTag;
 		}
+		this.getCurrSubTagIndex = function() {
+		  return currSubTagIndex;
+		}
+		
 	}
 	
 	function Event(_sender) {
@@ -262,66 +506,70 @@ var Site = (function(){
 		if (this.block.hasClass("big")) this.size = "big";
 		else this.size = "small";
 		
-		//recruit associated tags from DOM class attribute 
+		//recruit associated tags from DOM data-tags attribute 
 		$.each(services_cats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.servicesTags.push(value);
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.servicesTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.servicesTags.push(value);
 		});
 		$.each(services_GLD_subCats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.servicesSubTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
 		});
-		$.each(services_FCS_subCats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
+		$.each(services_MOC_subCats, function(index, value) {
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.servicesSubTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
 		});
-		$.each(services_ODS_subCats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
+		$.each(services_RDA_subCats, function(index, value) {
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.servicesSubTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
 		});
 		$.each(services_SBP_subCats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.servicesSubTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.servicesSubTags.push(value);
 		});
 		$.each(organizations_cats, function(index, value) {
-		  if (_this.block.hasClass(value)) _this.organizationsTags.push(value);
+		  if (_this.block.data("tags").split(",").contains(value.toLowerCase())) _this.organizationsTags.push(value); 
+		  //if (_this.block.hasClass(value)) _this.organizationsTags.push(value);
 		});
-		
-		this.update = function(_event) {
-			//trace(model.getCurrSection()+":"+model.getCurrTag()+":"+model.getCurrSubTag());
-			//trace(_this.organizationsTags );
+	}
+	Block.prototype.update = function(_event) {
 			switch (_event) {
 				case "onSectionChange":
 					if ((model.getCurrTag() == "undefined") || (model.getCurrTag() == undefined)) {
-						if (_this.size == "big") {
+						if (this.size == "big") {
 							 if (model.getCurrSection() == "services") {
-								 _this.block.find(".title p").css({"color":services_color_scheme[$.inArray(_this.servicesTags[0], services_cats)]});
-								 _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+_this.servicesTags[0]+"_color.png"}); 
+								 this.block.find(".title p").css({"color":services_color_scheme[$.inArray(this.servicesTags[0], services_cats)]});
+								 this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+this.servicesTags[0]+"_color.png"}); 
 							 }
 							 else if (model.getCurrSection() == "organizations") {
-								 _this.block.find(".title p").css({"color":organizations_color_scheme[$.inArray(_this.organizationsTags[0], organizations_cats)]}); 
-								 _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+_this.organizationsTags[0]+"_color.png"}); 
+								 this.block.find(".title p").css({"color":organizations_color_scheme[$.inArray(this.organizationsTags[0], organizations_cats)]}); 
+								 this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+this.organizationsTags[0]+"_color.png"}); 
 							 }
 						}
 						else {
 							 if (model.getCurrSection() == "services") {
-								 _this.block.css({"background-color":services_color_scheme[$.inArray(_this.servicesTags[0], services_cats)]}); 
-							 	 _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+_this.servicesTags[0]+"_white.png"}); 
+								 this.block.css({"background-color":services_color_scheme[$.inArray(this.servicesTags[0], services_cats)]}); 
+							 	 this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+this.servicesTags[0]+"_white.png"}); 
 							 }
 							 else if (model.getCurrSection() == "organizations") {
-								 _this.block.css({"background-color":organizations_color_scheme[$.inArray(_this.organizationsTags[0], organizations_cats)]});
-								  _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+_this.organizationsTags[0]+"_white.png"}); 
+								 this.block.css({"background-color":organizations_color_scheme[$.inArray(this.organizationsTags[0], organizations_cats)]});
+								  this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+this.organizationsTags[0]+"_white.png"}); 
 							 }
 						}	
 					}
 					break;
 				case "onTagChange":
 					if ((model.getCurrTag() != "undefined") && (model.getCurrTag() != undefined)) {
-						if (($.inArray(model.getCurrTag(), _this.servicesTags) != -1) || ($.inArray(model.getCurrTag(), _this.organizationsTags) != -1)) {
-							if (_this.size == "big") {
-								 _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+model.getCurrTag()+"_color.png"});
-								 if (model.getCurrSection() == "services") _this.block.find(".title p").css({"color":services_color_scheme[$.inArray(model.getCurrTag(), services_cats)]}); 
-								 else if (model.getCurrSection() == "organizations") _this.block.find(".title p").css({"color":organizations_color_scheme[$.inArray(model.getCurrTag(), organizations_cats)]}); 
+						if (($.inArray(model.getCurrTag(), this.servicesTags) != -1) || ($.inArray(model.getCurrTag(), this.organizationsTags) != -1)) {
+							if (this.size == "big") {
+								 this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+model.getCurrTag()+"_color.png"});
+								 if (model.getCurrSection() == "services") this.block.find(".title p").css({"color":services_color_scheme[$.inArray(model.getCurrTag(), services_cats)]}); 
+								 else if (model.getCurrSection() == "organizations") this.block.find(".title p").css({"color":organizations_color_scheme[$.inArray(model.getCurrTag(), organizations_cats)]}); 
 							}
 							else {
-								 _this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+model.getCurrTag()+"_white.png"}); 
-								 if (model.getCurrSection() == "services") _this.block.css({"background-color":services_color_scheme[$.inArray(model.getCurrTag(), services_cats)]}); 
-								 else if (model.getCurrSection() == "organizations") _this.block.css({"background-color":organizations_color_scheme[$.inArray(model.getCurrTag(), organizations_cats)]});
+								 this.block.find(".icons_container img").attr({"src":"images/icons/icon_"+model.getCurrTag()+"_white.png"}); 
+								 if (model.getCurrSection() == "services") this.block.css({"background-color":services_color_scheme[$.inArray(model.getCurrTag(), services_cats)]}); 
+								 else if (model.getCurrSection() == "organizations") this.block.css({"background-color":organizations_color_scheme[$.inArray(model.getCurrTag(), organizations_cats)]});
 							}						
 						}
 					} 
@@ -330,7 +578,6 @@ var Site = (function(){
 					break;
 			}
 		}
-	}
 	
 	function setupBlocks() {
 		colWidth = $('.block').outerWidth();
@@ -376,6 +623,16 @@ var Site = (function(){
 	Array.min = function(array) {
 		return Math.min.apply(Math, array);
 	};
+	
+	Array.prototype.contains = function(obj) {
+        var i = this.length;
+        while (i--) {
+            if (this[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	function update(_event) {
 		switch (_event) {
@@ -433,15 +690,26 @@ var Site = (function(){
 						}
 					}
 					setupBlocks();
+					trace(model.getCurrSubTagIndex());
+					trace(model.getCurrTag());
+					trace(services_subCat_title[model.getCurrSubTagIndex()]);
+					trace(services_subCat_desc[model.getCurrSubTagIndex()]);
+					
+					$(".sub_tag_title").html(services_subCat_title[model.getCurrSubTagIndex()].toUpperCase());
+					switch (model.getCurrTag()) {
+					   case "Strategic_Business_Planning":
+					       
+					       break;
+					   case "Governance_Leadership_Development":
+                           break;
+                       case "Management_Organizational_Change":
+                           break;
+                       case "Resource_Development_Allocation":
+                           break;
+					}
 					
 				}
 				break;
-		}
-	}
-	
-	function trace(_val) {
-		if (console) {
-			console.log(_val);
 		}
 	}
 	
@@ -451,3 +719,8 @@ var Site = (function(){
 	}
 })();
 
+function trace(_val) {
+	if (console) {
+		console.log(_val);
+	}
+} 
