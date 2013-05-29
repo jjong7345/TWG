@@ -69,23 +69,27 @@ var Site = (function(){
 			
 			/*mainBannerHeight = (windowWidth * imageRatio) + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width"));*/
 			$("#illustration").height((windowWidth * imageRatio) - (decreaseRatio));
-			mainBannerHeight = $("#illustration").height() + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width"));
 			
-			//$("#main_banner").css({"top":-mainBannerHeight+"px"});
+			mainBannerHeight = $("#illustration").height() + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width")) + 1;
+			
+			//$("html, body").scrollTop(mainBannerHeight);
+			
 			clearTimeout(timeout);
 			timeout = setTimeout(setupBlocks, 150);
+			
+			$(window).scroll();
+			
         });
 		
 		$(window).scroll(function(e) {
-			if ($(document).scrollTop() > (mainBannerHeight)) {
-				$("#header").css({"top":-($(document).scrollTop() - (mainBannerHeight))});
+			if ($(window).scrollTop() > (mainBannerHeight)) {
+				$("#header").css({"top":-($(window).scrollTop() - (mainBannerHeight))});
 			} 
 			else {
 				$("#header").css({"top":"0px"});
 			}
-			
-		});
-		
+			//trace("scrolling");
+		});		
 		
 		services = $("#services");
 		organizations = $("#organizations");
@@ -104,8 +108,6 @@ var Site = (function(){
 			
 			return false;
 		});
-		
-		$("#logo2").hide();
 		
 		$(".logo").click(function(e) {
 			openMainBanner();
@@ -227,7 +229,7 @@ var Site = (function(){
 	
 	
 	function closeMainBanner() {
-		mainBannerHeight = $("#illustration").height() + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width"));
+		mainBannerHeight = $("#illustration").height() + $("#red_bar").height() + $("#main_desc").height() + parseInt($("#main_desc").css("padding-top")) + parseInt($("#illustration").css("border-bottom-width")) + 1;
 		/*$("#main_banner").animate({"top":-mainBannerHeight+"px"},{ queue:false, easing:"easeInOutQuad", duration:500, complete:function() {
 			$("#main_banner").css({"height":"0px"});
 		}});
@@ -235,11 +237,8 @@ var Site = (function(){
 			$("#content").css({"top":"0px"});
 		}});*/
 		
-		//switch logo to logo2
-		$("#logo1").delay(100).fadeOut();
-		$("#logo2").fadeIn();
 		
-		$("html, body").animate({ scrollTop: "0px" }, { queue:false, easing:"easeInOutQuad", duration:500 } );
+		$("html, body").animate({ scrollTop: mainBannerHeight +"px" }, { queue:false, easing:"easeInOutQuad", duration:500 } );
 	}
 	
 	function openMainBanner() {
@@ -250,9 +249,8 @@ var Site = (function(){
 		//$("#content").css({"top":-mainBannerHeight+"px"});
 		$("#content").css({"top":-mainBannerHeight+"px"}).animate({"top":0+"px"},{ queue:false, easing:"easeInOutQuad", duration:500});*/
 		
-		//switch logo to logo1
-		$("#logo1").delay(200).fadeIn();
-		$("#logo2").delay(300).fadeOut();
+		$("html, body").animate({ scrollTop: 0 +"px" }, { queue:false, easing:"easeInOutQuad", duration:500 } );
+		
 	}
 	
 	function Block(_block) {
@@ -365,7 +363,13 @@ var Site = (function(){
 			}
 			
 			blockHeights[index] = min + blocks[_arrayIndex].block.outerHeight() + margin;
-		});	
+		});
+		
+		//calculate approximate #blocks_container height
+		var min2 = Array.min(blockHeights);
+		var index2 = $.inArray(min2, blockHeights);	
+		$("#blocks_container").height(blockHeights[index2] + 300);
+		//
 	}
 	
 	// Function to get the Min value in Array
@@ -381,29 +385,28 @@ var Site = (function(){
 				
 				switch (model.getCurrSection()) {
 					case "services":
-						services.addClass("active");
-						organizations.removeClass("active");
-						$("#center_divider").css({"background-color":"#6EA7B6"});
-						services.find(".nav_title img").css({"opacity":"1"});
-						organizations.find(".nav_title img").css({"opacity":"0.5"});
+						services.find(".nav_title .arrow").addClass("active");
+						organizations.find(".nav_title .arrow").removeClass("active");
+						services.find(".nav_title .arrow").removeClass("transparent");
+						organizations.find(".nav_title .arrow").addClass("transparent");
+						services.find(".nav_title p").removeClass("transparent");
+						organizations.find(".nav_title p").addClass("transparent");
 						
 						$("#services_nav").show();
 						$("#organizations_nav").hide();
 						break;
 					case "organizations":
-						services.removeClass("active");
-						organizations.addClass("active");
-						$("#center_divider").css({"background-color":"#CC5631"});
-						services.find(".nav_title img").css({"opacity":"0.5"});
-						organizations.find(".nav_title img").css({"opacity":"1"});
+						services.find(".nav_title .arrow").removeClass("active");
+						organizations.find(".nav_title .arrow").addClass("active");
+						services.find(".nav_title .arrow").addClass("transparent");
+						organizations.find(".nav_title .arrow").removeClass("transparent");
+						services.find(".nav_title p").addClass("transparent");
+						organizations.find(".nav_title p").removeClass("transparent");
 						
 						$("#organizations_nav").show();
 						$("#services_nav").hide();
 						break;
 				}
-				
-				$(window).resize();
-				
 				break;
 				
 			case "onTagChange":
